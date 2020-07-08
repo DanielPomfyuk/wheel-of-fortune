@@ -1,9 +1,10 @@
-import React ,{setState}from 'react';
+import React ,{setState, useState}from 'react';
 import { StyleSheet, Text, View ,Button} from 'react-native';
 import WheelOfFortune from 'react-native-wheel-of-fortune'
 
 export default function App() {
-  const rewards = ["1",2,3,4,5,6,7,8,9,10]
+  const rewards = ["kokotturturko","hgfhgf",3,4,5,6,7,8,9,10]
+  const [winner, setWinner] = useState("HUY");
   return(<View style={styles.home}>
     <WheelOfFortune
     onRef={ref => (this.child = ref)} 
@@ -14,9 +15,9 @@ export default function App() {
     winner={3}
     innerRadius={50}
     backgroundColor={"white"}
-    getWinner={(value, index) => this.setState({ winnerValue: value, winnerIndex: index })}
+    getWinner={(value, index) => setWinner(value)}
 />
-<Button title="Press me" onPress={ () => { this.child._onPress() } } />
+  <Text>{winner}</Text>
   </View>)
 }
 
